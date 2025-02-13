@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Wishes</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(./images/flower.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #ff4081; /* Pink color for the nav bar */
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-family: 'Dancing Script', cursive; /* Romantic font for the title */
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: #ff80ab; /* Lighter pink for hover effect */
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px; /* To prevent the navbar from overlapping content */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .wishes-content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff4081;
+        }
+
+        .wishes-content p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Flower Animation */
+        .flower {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px; /* Make flower smaller */
+            height: 30px;
+            border-radius: 50%; /* Make the flower round */
+            animation: fall 5s infinite;
+            z-index: 50;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateX(-50%) translateY(-50px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Music Player */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #ff4081;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <h1>Valentine Wishes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="memories.html">Memories</a></li>
+                <li><a href="valentine-wishes.html">Valentine Wishes</a></li>
+                <li><a href="birthday-wish.html">Birthday Wish</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="wishes-content">
+            <h2>My Sweet Momma, My Beautiful Elsy ❤️🥰</h2>
+            <p> 
+
+                Happy Valentine’s Day, my love! 💘 But today isn’t just Valentine’s—it’s **our day**. One whole year of love, laughter, and the sweetest memories with the most beautiful soul I’ve ever known. 💖✨  
+                
+                Momma, from the very first moment, you captured my heart, and every single day since then, you’ve made me fall for you even more. You are my sunshine on the darkest days ☀️, my peace in the storm 🌊, and the sweetest part of my life. 🍯💞  
+                
+                Loving you is the easiest, most beautiful thing I’ve ever done. Your smile melts my heart 🥺💕, your voice is my favorite sound 🎶, and your love is the best feeling I’ve ever known. You are my home, my safe place, my forever. 💑❤️  
+                
+                A whole year with you, and I still can’t get enough of you. 😘 Every moment with you is a treasure, and I can’t wait to create a lifetime of memories together. You’re not just my love; you’re **my heart, my happiness, my everything**. 💓🌍  
+                
+                I love you beyond words, beyond time, beyond anything. Forever and always, **your Phantom** 💋💖🔥</p>
+        </section>
+    </main>
+
+    <!-- Background Music (Player) -->
+    <footer>
+        <audio controls autoplay loop>
+            <source src="./music/music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </footer>
+
+    <!-- Script for Flower Animation -->
+    <script>
+        // JavaScript to generate falling flowers
+        document.addEventListener("DOMContentLoaded", function() {
+            const flowerCount = 10; // Number of flowers to animate
+
+            // Function to create a flower element
+            function createFlower() {
+                const flower = document.createElement('img');
+                flower.src = './images/download.jpg'; // Path to your flower image (make sure you add a flower image here)
+                flower.alt = 'Flower';
+                flower.classList.add('flower');
+                
+                // Randomize position and size
+                flower.style.left = `${Math.random() * 100}vw`; // Random position on the X-axis
+                flower.style.animationDuration = `${Math.random() * 3 + 4}s`; // Random duration for falling
+                
+                document.body.appendChild(flower);
+
+                // Remove flower after it falls
+                flower.addEventListener('animationend', () => {
+                    flower.remove();
+                });
+            }
+
+            // Create flowers at regular intervals
+            for (let i = 0; i < flowerCount; i++) {
+                setInterval(createFlower, 1000); // Add a flower every second
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: rgba(255, 105, 180, 0.8);
+            color: white;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: #ffea00;
+        }
+        
+        .memory-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: white;
+            padding: 10px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .description {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .next-btn {
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #ff6699;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .next-btn:hover {
+            background: #ff3366;
+        }
+    </style>
+</head>
+<header>
+    <h1>Welcome To Our Love Journey😉</h1><br>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="birthday-wish.html">Birthday Wish</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="valentine-wishes.html">Valentine Wishes</a></li>
+        </ul>
+    </nav>
+</header>
+<br><br><br><br><br>
+<body>
+    <div class="memory-container">
+        <img id="memory-image" src="./flower.jpg" alt="Memory">
+        <p class="description" id="memory-text">Description for image 1</p>
+        <button class="next-btn" onclick="previousmemory()">previous</button>
+        <button class="next-btn" onclick="nextMemory()">Next</button>
+    </div>
+    <footer>
+        <audio controls autoplay loop>
+            <source src="./music/memory.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </footer>
+    <script>
+        const images = [
+            { src: "./images/rest.jpg", text: "hapa restressness ilikuwa on top😂😂,,we took half of the time silent..🤣,,i enjoyrd meeting you though😊😊" },
+            { src: "./images/shy.jpg", text: "This was our first date,hapa ulikuwa unakaa innocent sana😂😂😂,,little did i know,though i also looked shy🤩😋😍" },
+            { src: "./images/having.jpg", text: "first time at my place😍i could'nt believe this,,having you became my best decision🤭😎,,i felt like i needed you more🥺💕" },
+            { src: "images/hold.jpg", text: "second time,,that feeling holding the boobs😂😋i felt like i needed them off the bra😂😂" },
+            { src: "./images/mtoto.jpg", text: "hapa napo ulikuwa unakaa mtoto,,ningekuwa nazo ningekunyonyesha😂😂😂" },
+            { src: "./images/smile.jpg", text: "smile in the face said it all😁,,being with the right person,,the choice of my heart💖" },
+            { src: "images/mali.jpg", text: "hapa nilikuwa nauliza tutapatana lini nigonge hii mali😂😂😜,so sexy🤭" },
+            { src: "images/fav.jpg", text: "my favourite pic📸😍" },
+          
+            { src: "images/edit.jpg", text: "we had just knew each other,,here i felt like editing would bring us closer🤗,,we came to meet at the end of all😊😁" },
+            { src: "images/kazi.jpg", text: "i went home for a long period,,you called it desert😪,worked hard,,i missed you but i tried to cope,,you always hit my mind before my first nap😑😑" },
+            { src: "images/fav.jpg", text: "my favourite pic📸😍" },
+            { src: "images/fav.jpg", text: "A THOUSAND YEARS💏" },
+        ];
+
+        let currentIndex = 0;
+        function nextMemory() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("memory-image").src = images[currentIndex].src;
+            document.getElementById("memory-text").innerText = images[currentIndex].text;
+
+        }
+
+        function previousmemory() {
+            currentIndex = (currentIndex - 1) % images.length;
+            document.getElementById("memory-image").src = images[currentIndex].src;
+            document.getElementById("memory-text").innerText = images[currentIndex].text;
+
+        }
+        
+        
+        setInterval(nextMemory, 60000); // Auto switch every 1 minute
+    </script>
+</body>
+</html>

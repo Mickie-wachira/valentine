@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url(./images/birthday-bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+            overflow-x: hidden;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #ffcc00;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: #ffea00;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .birthday-card {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .birthday-card:hover {
+            transform: scale(1.05);
+        }
+
+        .birthday-container {
+            animation: slideUp 1.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        #surprise-message {
+            animation: popIn 0.8s ease-in-out;
+            margin-top: 10px;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        button {
+            transition: transform 0.3s;
+            padding: 10px;
+            border: none;
+            background: #ffcc00;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Balloon Animation */
+        .balloon {
+            position: absolute;
+            top: -50px;
+            width: 30px;
+            height: 40px;
+            animation: fall 5s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-50px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Birthday Wishes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Back</a></li>
+                <li><a href="memories.html">Memories</a></li>
+                <li><a href="valentine-wishes.html">Valentine Wishes</a></li>
+                <li><a href="birthday-wish.html" class="active">Birthday Wish</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="birthday-container">
+            <div class="birthday-card">
+                <h2>Happy Birthday!</h2>
+                <p>My Precious Momma, My Sweet Elsy 🎂❤️</p>
+                <button id="reveal-surprise">Click for a Surprise</button>
+                <div id="surprise-message" style="display: none;">
+                    <p>  
+
+                        Happy, happy birthday, my love! 🎉🎁💖 Today is not just any day—it’s the day the most beautiful, kind-hearted, and loving soul was born. The day **you**, my sunshine, my happiness, my everything, came into this world. ☀️💓  
+                        
+                        Momma, you are my greatest blessing, my sweetest love, my forever. Every moment with you is magic ✨, every smile of yours is my favorite sight 😊, and every heartbeat of mine whispers your name. 💞💘  
+                        
+                        On this special day, I just want to remind you how much you mean to me. You are **loved beyond words, cherished beyond measure, and adored beyond time**. You make my world brighter, my heart fuller, and my life so much sweeter. 🍯💖  
+                        
+                        As you blow out your candles today 🕯️, know that my wish is to celebrate a million more birthdays by your side. **May this year bring you all the happiness, success, and love you deserve.** And no matter what, I’ll always be here, loving you endlessly. 😘💝  
+                        
+                        **Happy Birthday, my Queen 👑❤️🎂! I love you forever and always!** 💋💘🔥  
+                        
+                        **Yours, now and always,  
+                        Your Phantom.** 💖💕</p>
+                    <img src="./images/download.jpg"  width="100%">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Background Music -->
+    <footer>
+        <audio controls autoplay loop>
+            <source src="./music/happy birthday.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </footer>
+
+    <script>
+        document.getElementById("reveal-surprise").addEventListener("click", function() {
+            document.getElementById("surprise-message").style.display = "block";
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const balloonCount = 10;
+            function createBalloon() {
+                const balloon = document.createElement('img');
+                balloon.src = './images/balloon.jpg';
+                balloon.classList.add('balloon');
+                balloon.style.left = `${Math.random() * 100}vw`;
+                balloon.style.animationDuration = `${Math.random() * 3 + 4}s`;
+                document.body.appendChild(balloon);
+                setTimeout(() => { balloon.remove(); }, 5000);
+            }
+            setInterval(createBalloon, 1000);
+        });
+    </script>
+</body>
+</html>
